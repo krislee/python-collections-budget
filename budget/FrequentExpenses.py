@@ -13,7 +13,7 @@ for expense in expenses.list: # expenses.list is a list of Expense objects that 
 spending_counter = collections.Counter(spending_categories)
 print(f'{spending_counter=}')
 
-top5 = collections.Counter.most_common(spending_counter, 5)
+top5 = spending_counter.most_common(5)
 print(f'{top5=}')
 
 categories, count = zip(*top5)
