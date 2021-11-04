@@ -25,19 +25,21 @@ class BudgetList:
     ## Module 3 ##
     ##############
 
-    # Goal is to create our own iterator for Budget class
-    # To create iterator, follow the iterator protocol, that is have __iter__ and __next__
+    # Goal is to create our own iterator for Budget class so that the Budget class is iterable
+    # To create iterator, follow the iterator protocol, that is Budget class must have __iter__ and __next__
     def __iter__(self):
         # Since self.expenses and self.overages are lists, they each have built-in
         # iterators, so we will use their built-in iterators
         self.iter_e = iter(self.expenses) # returns an iterator
         self.iter_o = iter(self.overages) # returns an iterator
-        return self
+        return self # returning self in __iter__ would now make the Budget class's instance is an iterator
 
     def __next__(self):
         try:
+            # Using built-in next() from self.iter_e since self.iter_e is a list
             return self.iter_e.__next__()
         except StopIteration as stop:
+            # Using built-in next() from self.iter_o since self.iter_o is a list
             return self.iter_o.__next__()
 
 
