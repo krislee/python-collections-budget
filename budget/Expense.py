@@ -11,7 +11,7 @@ class Expense():
 
 class Expenses():
     def __init__(self):
-        self.list = []
+        self.list = [] # list of expense types
         self.sum = 0
 
     # Read in the December spending data, row[2] is the $$, and need to format $$
@@ -19,8 +19,9 @@ class Expenses():
         with open(filename, newline='') as csvfile:
             csvreader = csv.reader(csvfile, delimiter=',')
             for row in csvreader:
-                if '-' not in row[3]:
+                if '-' not in row[3]: # '-' indicates spending
                     continue
+                # Removing any commas, e.g. 1,903 to allow for float conversion from strings
                 amount = float((row[3][2:]).replace(',',''))
                 self.list.append(Expense(row[0],row[1], row[2], amount))
                 self.sum += amount
