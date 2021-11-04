@@ -1,6 +1,9 @@
 import matplotlib.pyplot as plt
 from . import Expense
 
+############################################################
+## Create the BudgetList class to Display Budget Overages ##
+############################################################
 class BudgetList:
     def __init__(self, budget):
         self.budget = budget
@@ -21,9 +24,9 @@ class BudgetList:
     def __len__(self):
         return len(self.expenses) + len(self.overages)
 
-    ##############
-    ## Module 3 ##
-    ##############
+    ###########################################
+    ## Finish Making BudgetList an Iterable  ##
+    ###########################################
 
     # Goal is to create our own iterator for Budget class so that the Budget class is iterable
     # To create iterator, follow the iterator protocol, that is Budget class must have __iter__ and __next__
